@@ -5,13 +5,18 @@
 # that works even if disks are added and removed. See fstab(5).
 #
 # <file system> <mount point>   <type>  <options>       <dump>  <pass>
-# / was on /dev/sda1 during installation
-UUID=abda6fdd-3fb9-4543-a73d-7b52aa7a6ab8 /               ext4    errors=remount-ro 0       1
-
-UUID=66AC3D5A2B6AEEE0 /mnt/movies ntfs defaults 0 0
-UUID=0fe0b79c-eff5-43fa-83ae-8b0af595b99b /mnt/series ext4 defaults 0 0
-UUID=8b8661f0-49b3-4094-9b13-17e5b38756d6 /mnt/data1  ext4 defaults 0 0
-UUID=e85e8f60-1f39-49bc-ba91-650ac0476d45 /mnt/data2  ext4 defaults 0 0
-UUID=7D37C98924EF621F /mnt/data3  ntfs defaults 0 0
+# / was on /dev/sda5 during installation
+UUID=8ff031e8-9236-47bb-8879-f2c8e182ea34 /               ext4    errors=remount-ro 0       1
+# /home was on /dev/sda6 during installation
+UUID=72cff4eb-c945-4c1f-a919-78af789f051f /home           ext4    defaults        0       2
+# /mnt/data1 was on /dev/sdb1 during installation
+UUID=c789b356-48b7-4aee-935e-63f1d95cc32e /mnt/data1      ext4    defaults        0       2
+# /mnt/data2 was on /dev/sdb2 during installation
+UUID=2159c6f6-6871-4b58-8e00-ab3b83a5552d /mnt/data2      ext4    defaults        0       2
+# /mnt/recreation was on /dev/sdc5 during installation
+UUID=369a956c-8901-4937-a2b9-6aadfa4a1ccc /mnt/recreation ext4    defaults        0       2
+# swap was on /dev/sdc1 during installation
+#UUID=813c69c1-3b56-4d8d-b6b8-62fa77aea51a none            swap    sw              0       0
+/dev/mapper/cryptswap1 none swap sw 0 0
 shm                     /dev/shm        tmpfs           size=12G,nodev,nosuid,noexec     0 0 
-tmpfs                   /tmp            tmpfs           defaults,noatime,nosuid,nodev,noexec,mode=1777,size=1G 0 0
+tmpfs                   /tmp            tmpfs           defaults,noatime,nosuid,nodev,noexec,mode=1777,size=1G 0 
